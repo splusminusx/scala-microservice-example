@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "repos" : [{
+    "name" : "configs",
+    "url" : "https://github.com/splusminusx/base-service-config",
+    "branches" : ["master"],
+    "hooks": [{
+      "type" : "polling",
+      "interval" : "1"
+    }]
+  }]
+}
