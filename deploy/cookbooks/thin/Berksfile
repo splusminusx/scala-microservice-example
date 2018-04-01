@@ -1,3 +1,9 @@
 source "https://supermarket.chef.io"
 
+cookbook 'docker', path: '../docker'
+cookbook 'docker_proxy', path: '../docker_proxy'
+cookbook 'consul', path: '../consul'
+cookbook 'util', path: '../util'
+
 metadata
+

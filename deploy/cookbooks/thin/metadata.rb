@@ -4,5 +4,7 @@ maintainer_email 'you@example.com'
 license          'all_rights'
 description      'Installs/Configures thin'
 long_description 'Installs/Configures thin'
-version          '0.1.0'
+version          '0.1.4'
 
+depends 'docker', '~> 0.0.8'
+depends 'report'

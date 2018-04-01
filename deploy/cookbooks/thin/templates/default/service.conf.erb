@@ -1,0 +1,19 @@
+server {
+  listen          80;
+  access_log      /var/log/nginx/<%= @main_name %>-access.log;
+  error_log       /var/log/nginx/<%= @main_name %>-error.log;
+
+  server_name     <%= @domains.join(" ") %>;
+
+  allow           127.0.0.1;
+  allow           10.0.0.0/8;
+  allow           172.16.0.0/12;
+  allow           192.168.0.0/16;
+  deny            all;
+
+  location / {
+    proxy_set_header    X-Real-IP  $remote_addr;
+    proxy_set_header    HOST       $host;
+    proxy_pass          <%= @url %>;
+  }
+}

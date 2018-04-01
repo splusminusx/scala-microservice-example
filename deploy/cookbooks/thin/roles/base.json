@@ -1,0 +1,12 @@
+{
+  "name": "base",
+  "description": "base deployment dependencies",
+  "json_class": "Chef::Role",
+
+  "chef_type": "role",
+  "run_list": [
+    "recipe[docker]",
+    "recipe[docker_proxy]",
+    "recipe[consul::standalone]"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "scala-deploy-custom",
+  "description": "custom deployment profile for scala-deploy service",
+  "json_class": "Chef::Role",
+
+  "override_attributes": {
+    "thin": {
+      "scala-deploy": {
+        "custom": {
+          "image": "dh.livetex.ru/service/scala-deploy",
+          "version": "1.0.1",
+          "command": "java -Xmx256m -Xms256m -cp /app/libs/*:/app/scala-deploy.jar com.github.splusminusx.scaladeploy.Application",
+          "conf_path": "/app/etc",
+          "log_path": "/app/log",
+          "data_path": "/app/data",
+          "configs": [
+            "application.conf",
+            "logging.xml"
+          ]
+        }
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[thin::deploy]"
+  ]
+}

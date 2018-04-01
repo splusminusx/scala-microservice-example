@@ -4,13 +4,14 @@ driver:
 
 provisioner:
   name: chef_zero
+  roles_path: ./roles
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.5
+  - name: debian/jessie64
 
 suites:
   - name: default
     run_list:
-      - recipe[thin::default]
-    attributes:
+      - role[base]
+      - role[scala-deploy-default]
+      - role[scala-deploy-custom]
